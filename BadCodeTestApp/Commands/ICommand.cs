@@ -8,6 +8,6 @@ namespace BadCodeTestApp.Commands
 {
     interface ICommand
     {
-        void execute(string path, string param);
+        void execute(string path);
     }
 }

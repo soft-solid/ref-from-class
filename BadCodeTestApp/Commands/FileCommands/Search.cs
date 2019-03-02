@@ -9,14 +9,14 @@ namespace BadCodeTestApp.Commands.FileCommands
 {
     class Search:ICommand
     {
-        public virtual void execute(string path, string param)
+        public void execute(string path)
         {
             search(path).ForEach(n => Console.WriteLine(n));
         }
 
-        protected List<string> search(string path, string extension = "*")
+        protected List<string> search(string path)
         {
-            return Directory.GetFiles(path, extension, SearchOption.AllDirectories).ToList();
+            return Directory.GetFiles(path, "*", SearchOption.AllDirectories).ToList();
         }
     }
     
