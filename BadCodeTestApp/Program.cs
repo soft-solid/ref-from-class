@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using BadCodeTestApp.Service;
 using BadCodeTestApp.Commands;
 using BadCodeTestApp.Commands.FileCommands;
 using System;
@@ -12,26 +13,12 @@ namespace BadCodeTestApp
 {
     class Program
     {
-        //static Dictionary<string, ICommand> supportedCommands = new Dictionary<string, ICommand>();
-
-        //static Program()
-        //{
-        //    register();
-        //}
-
-        //static void register()
-        //{
-        //    supportedCommands.Add("search", new Search());
-        //    supportedCommands.Add("cs_search", new SearchByExt());
-        //}
-
         static void Main(string[] args)
-        {
-            var container = ContainerIoC.GetContainerIoC();
+        {            
+            var container = ContainerIoC.GetContainerIoC();                    
 
-
-            string command = "create_txt";
-            string param     = @"D:\1dotNet\Литература2";
+            string command = "cs_search";
+            string param     = @"D:\1dotNet\Литература";
 
             var ins = container.ResolveNamed<ICommand>(command);
             ins.execute(param);

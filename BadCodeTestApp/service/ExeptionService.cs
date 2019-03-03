@@ -1,4 +1,5 @@
 ﻿using BadCodeTestApp.Commands;
+using log4net;
 using System;
 using System.IO;
 
@@ -7,11 +8,14 @@ namespace BadCodeTestApp.Service
     
     abstract class ExeptionService : ICommand
     {
+        private static readonly ILog Log =
+              LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public void execute(string path)
         {
             try
             {
-                //todo log
+                Log.Info("Start command");
                 CommandExecute(path);
             }
             catch (ArgumentNullException ex)
