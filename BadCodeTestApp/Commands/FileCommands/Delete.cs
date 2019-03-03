@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using BadCodeTestApp.Service;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BadCodeTestApp.Commands.FileCommands
 {
-    class Delete : ICommand
+    class Delete : ExeptionService
     {
-        public void execute(string path)
+        public override void CommandExecute(string path)
         {
             DeleteFile(path);
         }

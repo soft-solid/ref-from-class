@@ -1,24 +1,18 @@
-﻿using System;
+﻿using BadCodeTestApp.Service;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BadCodeTestApp.Commands.FileCommands
 {
-    class SearchByExt : ICommand
+    class SearchByExt : ExeptionService
     {
-        public void execute(string path)
+        public override void CommandExecute(string path)
         {
             searchByExt(path).ForEach(n => Console.WriteLine(n));
-        }
-
-        //List<string> searchByExt(string path, string ext)
-        //{
-        //    return base.search(path,ext);            
-        //}
-
+        }      
+        
         List<string> searchByExt(string path)
         {
             return Directory.GetFiles(path, "*.cs", SearchOption.AllDirectories).ToList();

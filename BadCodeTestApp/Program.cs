@@ -31,7 +31,7 @@ namespace BadCodeTestApp
 
 
             string command = "create_txt";
-            string param     = @"D:\1dotNet\Литература";
+            string param     = @"D:\1dotNet\Литература2";
 
             var ins = container.ResolveNamed<ICommand>(command);
             ins.execute(param);
