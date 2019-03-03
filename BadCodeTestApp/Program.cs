@@ -30,7 +30,7 @@ namespace BadCodeTestApp
             var container = ContainerIoC.GetContainerIoC();
 
 
-            string command = "search";
+            string command = "create_txt";
             string param     = @"D:\1dotNet\Литература";
 
             var ins = container.ResolveNamed<ICommand>(command);
@@ -52,7 +52,7 @@ namespace BadCodeTestApp
             //{
             //    File.Delete(param + "\\test.txt");
             //}
-
+            
             Console.ReadLine();
         }
     }

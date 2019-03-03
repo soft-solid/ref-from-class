@@ -22,6 +22,8 @@ namespace BadCodeTestApp
             ContainerBuilder builder = new ContainerBuilder();
             builder.RegisterType<Search>().Named<ICommand>("search");
             builder.RegisterType<SearchByExt>().Named<ICommand>("cs_search");
+            builder.RegisterType<Create>().Named<ICommand>("create_txt");
+            builder.RegisterType<Delete>().Named<ICommand>("remove_txt");
             return builder.Build();
             
         }

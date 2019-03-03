@@ -45,12 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\FileCommands\Create.cs" />
+    <Compile Include="Commands\FileCommands\Delete.cs" />
     <Compile Include="ContainerIoC.cs" />
     <Compile Include="Commands\FileCommands\Search.cs" />
     <Compile Include="Commands\FileCommands\SearchByExt.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="service\ExeptionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
