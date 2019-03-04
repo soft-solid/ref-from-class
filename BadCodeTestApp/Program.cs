@@ -18,7 +18,7 @@ namespace BadCodeTestApp
             var container = ContainerIoC.GetContainerIoC();                    
 
             string command = "cs_search";
-            string param     = @"D:\1dotNet\Литература";
+            string param     = @"D:\1dotNet\Литература2";
 
             var ins = container.ResolveNamed<ICommand>(command);
             ins.execute(param);

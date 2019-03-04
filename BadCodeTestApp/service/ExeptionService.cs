@@ -17,6 +17,7 @@ namespace BadCodeTestApp.Service
             {
                 Log.Info("Start command");
                 CommandExecute(path);
+                //Log.Error("End command");
             }
             catch (ArgumentNullException ex)
             {
@@ -32,6 +33,7 @@ namespace BadCodeTestApp.Service
             }
             catch (DirectoryNotFoundException ex)
             {
+                Log.Error("End command", ex);
                 Console.WriteLine(ex.Message);
             }
             catch (IOException ex)
