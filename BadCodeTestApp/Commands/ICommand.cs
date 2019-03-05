@@ -2,6 +2,6 @@
 {
     interface ICommand
     {
-        void execute(string path);
+        void execute(string[] prms);
     }
 }

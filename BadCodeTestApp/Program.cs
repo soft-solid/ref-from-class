@@ -14,32 +14,28 @@ namespace BadCodeTestApp
     class Program
     {
         static void Main(string[] args)
-        {            
-            var container = ContainerIoC.GetContainerIoC();                    
+        {
+            if (args.Length == 0)
+            {
+                Console.WriteLine("No parameters specified.");
+                Console.ReadLine();
+                Environment.Exit(0);
+            }
 
-            string command = "cs_search";
-            string param     = @"D:\1dotNet\Литература2";
+            IContainer container = ContainerIoC.GetContainerIoC();
 
-            var ins = container.ResolveNamed<ICommand>(command);
-            ins.execute(param);
-            //supportedCommands[command].execute(param, "*.cs");
-            //if (command == "search")
-            //{
-            //    supportedCommands["search"].execute(param, string.Empty);
-            //}
-            //if (command == "cs_search")
-            //{
-            //    supportedCommands["cs_search"].execute(param, "cs");             
-            //}
-            //if (command == "create_txt")
-            //{
-            //    File.Create(param + "\\test.txt");
-            //}
-            //if (command == "remove_txt")
-            //{
-            //    File.Delete(param + "\\test.txt");
-            //}
-            
+            string command = args[0];
+
+            if (!ContainerIoC.SearchRegisteredCommand(container, command))
+            {
+                Console.WriteLine("Command {0} is illegal!", command);
+            }
+            else
+            {
+                ICommand ins = container.ResolveNamed<ICommand>(command);
+                ins.execute(args);
+            }
+
             Console.ReadLine();
         }
     }

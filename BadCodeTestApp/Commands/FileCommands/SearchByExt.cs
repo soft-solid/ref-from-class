@@ -8,14 +8,16 @@ namespace BadCodeTestApp.Commands.FileCommands
 {
     class SearchByExt : ExeptionService
     {
-        public override void CommandExecute(string path)
+        public override void CommandExecute(string[] prms)
         {
-            searchByExt(path).ForEach(n => Console.WriteLine(n));
-        }      
-        
-        List<string> searchByExt(string path)
+            string path = prms[1];
+            string pattern = prms[2];
+            searchByExt(path, pattern).ForEach(n => Console.WriteLine(n));
+        }
+
+        List<string> searchByExt(string path, string pattern)
         {
-            return Directory.GetFiles(path, "*.cs", SearchOption.AllDirectories).ToList();
+            return Directory.GetFiles(path, pattern, SearchOption.AllDirectories).ToList();
         }
     }
 }

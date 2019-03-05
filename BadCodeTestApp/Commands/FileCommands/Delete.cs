@@ -5,9 +5,9 @@ namespace BadCodeTestApp.Commands.FileCommands
 {
     class Delete : ExeptionService
     {
-        public override void CommandExecute(string path)
+        public override void CommandExecute(string[] prms)
         {
-            DeleteFile(path);
+            DeleteFile(prms[1]);
         }
 
         protected void DeleteFile(string path)
