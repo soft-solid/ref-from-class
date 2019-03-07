@@ -3,7 +3,7 @@ using System.IO;
 
 namespace BadCodeTestApp.Commands.FileCommands
 {
-    class Delete : ExeptionService
+    class Delete : ExeptionHandling
     {
         public override void CommandExecute(string[] prms)
         {

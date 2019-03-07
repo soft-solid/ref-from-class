@@ -23,18 +23,25 @@ namespace BadCodeTestApp
             }
 
             IContainer container = ContainerIoC.GetContainerIoC();
-
+            
             string command = args[0];
-
-            if (!ContainerIoC.SearchRegisteredCommand(container, command))
+            Object obj;
+            try
             {
-                Console.WriteLine("Command {0} is illegal!", command);
-            }
-            else
-            {
-                ICommand ins = container.ResolveNamed<ICommand>(command);
+                container.TryResolveNamed(command, typeof(ICommand), out obj);
+                ICommand ins = obj as ICommand;
                 ins.execute(args);
             }
+            catch
+            {
+                Console.WriteLine("Illegal command - {0}.", command);
+            }
+            //c# 6.0 
+            //finally
+            //{
+            //    ICommand ins = obj as ICommand;
+            //    ins?.execute(args);
+            //}
 
             Console.ReadLine();
         }

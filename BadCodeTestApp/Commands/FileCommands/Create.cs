@@ -3,7 +3,7 @@ using System.IO;
 
 namespace BadCodeTestApp.Commands.FileCommands
 {
-    class Create : ExeptionService
+    class Create : ExeptionHandling
     {
         public override void CommandExecute(string[] prms)
         {

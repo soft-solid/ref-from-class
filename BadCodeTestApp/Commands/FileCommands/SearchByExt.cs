@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BadCodeTestApp.Commands.FileCommands
 {
-    class SearchByExt : ExeptionService
+    class SearchByExt : ExeptionHandling
     {
         public override void CommandExecute(string[] prms)
         {
